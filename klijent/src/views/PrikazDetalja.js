@@ -3,6 +3,7 @@ import styled from "styled-components";
 //import data from "../data.json";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Loader from "../components/Loader"; // prilagodi putanju ako treba
 
 // Stilizirani kontejner za detalje
 const DetailWrapper = styled.div`
@@ -77,7 +78,7 @@ const PrikazDetalja = () => {
       );
 
       setData(response.data);
-
+setLoading(false);
       // setRezervacija(response.data);
     } catch (error) {
       alert("Greška pri dohvaćanju rezervacije!");
@@ -100,6 +101,8 @@ const PrikazDetalja = () => {
       alert("Greška pri brisanju rezervacije!");
     }
   };
+
+    if (loading) return <Loader />;
 
   return (
     <DetailWrapper>

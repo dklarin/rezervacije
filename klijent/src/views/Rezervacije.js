@@ -99,6 +99,25 @@ const Rezervacije = () => {
       });
   }, []);
 
+  function getDaysBetween(date1, date2) {
+    const d1 = new Date(date1);
+    const d2 = new Date(date2);
+    const millisecondsPerDay = 24 * 60 * 60 * 1000;
+    // Postavi vrijeme na ponoć za točan izračun
+    d1.setHours(0, 0, 0, 0);
+    d2.setHours(0, 0, 0, 0);
+    return Math.round(Math.abs((d2 - d1) / millisecondsPerDay));
+  }
+
+  function getDaysUntil(dateString) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // postavi na početak dana
+    const targetDate = new Date(dateString);
+    targetDate.setHours(0, 0, 0, 0);
+    const millisecondsPerDay = 24 * 60 * 60 * 1000;
+    return Math.ceil((targetDate - today) / millisecondsPerDay);
+  }
+
   const columns = React.useMemo(
     () => [
       { Header: "ID", accessor: "id" },
@@ -135,6 +154,23 @@ const Rezervacije = () => {
           return date.toLocaleDateString("hr-HR"); // daje format 25.08.2025.
         },
       },
+      {
+        Header: "Raspon dana",
+        id: "rasponDana",
+        accessor: (row) => getDaysBetween(row.dolazak, row.odlazak),
+        align: "right",
+      },
+      {
+      Header: "Dana do dolaska",
+      id: "danaDoDolaska",
+      accessor: row => getDaysUntil(row.dolazak),
+      Cell: ({ value }) =>
+        value > 0
+          ? `${value} dana`
+          : value === 0
+          ? "Danas"
+          : "Prošlo",
+    },
     ],
     []
   );
@@ -148,16 +184,16 @@ const Rezervacije = () => {
   );*/
 
   const filteredData = React.useMemo(
-  () =>
-    data.filter((row) =>
-      Object.values(row).some(
-        (value) =>
-          value &&
-          value.toString().toLowerCase().includes(filter.toLowerCase())
-      )
-    ),
-  [data, filter]
-);
+    () =>
+      data.filter((row) =>
+        Object.values(row).some(
+          (value) =>
+            value &&
+            value.toString().toLowerCase().includes(filter.toLowerCase())
+        )
+      ),
+    [data, filter]
+  );
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable(

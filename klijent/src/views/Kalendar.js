@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 /*import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";*/
 
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
-import Loader from "../components/Loader"; // prilagodi putanju ako treba
+import Loader from "../components/Loader";
 
 // Primjer događaja (možeš dohvatiti iz API-ja ili state-a)
 const pocetniDogadaji = [
