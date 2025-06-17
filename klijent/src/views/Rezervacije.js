@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTable } from "react-table";
+import { useTable, useSortBy } from "react-table";
 // ...import tvojih styled komponenti i labelMap
 import styled from "styled-components";
 import Loader from "../components/Loader"; // prilagodi putanju ako treba
@@ -82,7 +82,7 @@ const StyledInput = styled.input`
 const Rezervacije = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true); // opcionalno za loading state
-   const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState("");
 
   const navigate = useNavigate();
 
@@ -118,7 +118,12 @@ const Rezervacije = () => {
           if (!value) return "";
           const date = new Date(value);
           return date.toLocaleDateString("hr-HR"); // daje format 25.08.2025.
-        }
+        },
+        sortType: (rowA, rowB, columnId) => {
+          const dateA = new Date(rowA.values[columnId]);
+          const dateB = new Date(rowB.values[columnId]);
+          return dateA > dateB ? 1 : dateA < dateB ? -1 : 0;
+        },
       },
       {
         Header: "Odlazak",
@@ -135,16 +140,44 @@ const Rezervacije = () => {
   );
 
   // Filtriranje podataka prema ključnoj riječi
-  const filteredData = data.filter((row) =>
+  /*const filteredData = data.filter((row) =>
     Object.values(row).some(
       (value) =>
-        value &&
-        value.toString().toLowerCase().includes(filter.toLowerCase())
+        value && value.toString().toLowerCase().includes(filter.toLowerCase())
     )
-  );
+  );*/
+
+  const filteredData = React.useMemo(
+  () =>
+    data.filter((row) =>
+      Object.values(row).some(
+        (value) =>
+          value &&
+          value.toString().toLowerCase().includes(filter.toLowerCase())
+      )
+    ),
+  [data, filter]
+);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data: filteredData });
+    useTable(
+      {
+        columns,
+        data: filteredData,
+        initialState: { sortBy: [{ id: "dolazak", desc: false }] },
+      },
+      useSortBy
+    );
+
+  /*const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable(
+      {
+        columns,
+        data: filteredData,
+        initialState: { sortBy: [{ id: "dolazak", desc: false }] }, // sortiraj po datumu uzlazno po defaultu
+      },
+      useSortBy
+    );*/
 
   //if (loading) return <div>Učitavanje...</div>;
   if (loading) return <Loader />;
@@ -152,7 +185,7 @@ const Rezervacije = () => {
   return (
     <CenterWrapper>
       <StyledInput
-        style={{marginTop: 100}}
+        style={{ marginTop: 100 }}
         placeholder="Pretraži po ključnoj riječi..."
         value={filter}
         onChange={(e) => setFilter(e.target.value)}
@@ -163,11 +196,19 @@ const Rezervacije = () => {
             <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.id}>
               {headerGroup.headers.map((column) => (
                 <StyledTh
-                  {...column.getHeaderProps()}
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
                   key={column.id}
                   align={column.align}
                 >
                   {column.render("Header")}
+                  {/* Ikona sortiranja */}
+                  <span>
+                    {column.isSorted
+                      ? column.isSortedDesc
+                        ? " 🔽"
+                        : " 🔼"
+                      : ""}
+                  </span>
                 </StyledTh>
               ))}
             </tr>
@@ -199,7 +240,6 @@ const Rezervacije = () => {
           })}
         </tbody>
       </StyledTable>
-   
     </CenterWrapper>
   );
 };
