@@ -2,14 +2,23 @@
 
 ### Server
 
-1. Uđi u 'server' direktorij
-2. Kreiraj virtualno okruženje: <code>py -m venv venv</code>
-3. Aktiviraj virtualno okruženje: <code>venv/scripts/activate.ps1</code>
-4. Instaliraj zavisnosti: <code>pip install -r requirements.txt</code>
-5. Pokreni server: <code>py app.py</code>
+1. Uđi u `server` direktorij
+2. Kreiraj virtualno okruženje: 
+    `py -m venv venv`
+3. Aktiviraj virtualno okruženje: 
+    - **Windows (PowerShell):** `venv/scripts/activate.ps1`
+    - **Windows (CMD):** `venv/Scripts/activate.bat`
+    - **Linux/Mac:** `source venv/bin/activate`
+4. Instaliraj zavisnosti: 
+    `pip install -r requirements.txt`
+5. Pokreni server: 
+    `py app.py`
 
 ### Klijent
 
-1. Uđi u 'klijent' direktorij
-2. Instaliraj zavisnosti: <code>yarn install</code>
-3. Pokreni klijent: <code>yarn start</code>
+1. Uđi u `klijent` direktorij
+2. Instaliraj zavisnosti: 
+    `yarn install`
+3. Pokreni klijent:
+    `yarn start`
+    
