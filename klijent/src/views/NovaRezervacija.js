@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import Dropdown from "../components/Dropdown";
 
 // Početno prazno stanje forme
 const PocetniRed = {
@@ -24,6 +25,22 @@ const StyledInput = styled.input`
   }
 `;
 
+export const NextButton = styled.button`
+  padding: 0.5rem 1rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #2563eb;
+  }
+`;
+
 const NovaRezervacija = () => {
   const [noviRed, setNoviRed] = useState(PocetniRed);
   const [poruka, setPoruka] = useState("");
@@ -34,8 +51,6 @@ const NovaRezervacija = () => {
   const handleChange = (e) => {
     setNoviRed({ ...noviRed, [e.target.name]: e.target.value });
   };
-
-  
 
   // Slanje forme na Flask backend
   const handleSubmit = (e) => {
@@ -61,6 +76,12 @@ const NovaRezervacija = () => {
       .finally(() => setLoading(false));
   };
 
+  const opcije = ["Prva", "Druga", "Treća"];
+
+  const handleSelect = (odabrano) => {
+    alert(`Odabrali ste: ${odabrano}`);
+  };
+
   return (
     <div style={{ margin: "32px 0" }}>
       <h3>Dodaj novu rezervaciju</h3>
@@ -81,8 +102,14 @@ const NovaRezervacija = () => {
           onChange={handleChange}
           required
         />
+        <Dropdown
+          placeholder="boja"
+          options={["brown", "green", "lighblue", "darkgray"]}
+          onSelect={(value) => setNoviRed({ ...noviRed, boja: value })}
+        />
+
         <StyledInput
-          name="boja"
+          name="bojaa"
           placeholder="Boja (npr. red, green, lightblue)"
           value={noviRed.boja}
           onChange={handleChange}
@@ -102,9 +129,9 @@ const NovaRezervacija = () => {
           onChange={handleChange}
           required
         />
-        <button type="submit" disabled={loading}>
+        <NextButton type="submit" disabled={loading}>
           {loading ? "Dodavanje..." : "Dodaj"}
-        </button>
+        </NextButton>
       </form>
       {poruka && <div style={{ marginTop: 8 }}>{poruka}</div>}
     </div>

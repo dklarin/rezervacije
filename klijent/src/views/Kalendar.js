@@ -19,7 +19,6 @@ export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 3%;
- 
 `;
 
 export const NextButton = styled.button`
@@ -38,7 +37,7 @@ export const NextButton = styled.button`
   }
 `;
 
-const MojFullCalendar = () => {
+const Kalendar = () => {
   const [dogadaji, setDogadaji] = useState(pocetniDogadaji);
 
   const [data, setData] = useState([]);
@@ -76,7 +75,7 @@ const MojFullCalendar = () => {
     color: r.boja,
   }));
 
-    if (loading) return <Loader />;
+  if (loading) return <Loader />;
 
   return (
     <div style={{ maxWidth: 1000, margin: "80px auto" }}>
@@ -94,11 +93,11 @@ const MojFullCalendar = () => {
           right: "dayGridMonth",
         }}
       />
-       <ButtonWrapper>
-            <NextButton >Resetiraj kviz</NextButton>
-          </ButtonWrapper>
+      <ButtonWrapper>
+        <NextButton>Resetiraj kviz</NextButton>
+      </ButtonWrapper>
     </div>
   );
 };
 
-export default MojFullCalendar;
+export default Kalendar;
