@@ -73,14 +73,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 <code>npx create-react-app naziv-aplikacije</code>
 
 ### Paketi
-* React table
-<code>yarn add react-table</code>
 
-* Styled komponente
-<code>yarn add styled-components</code>
 
-* React Router
-<code>yarn add react-router-dom</code>
+
+
 
 * Gh-pages
 

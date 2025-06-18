@@ -14,6 +14,11 @@
 5. Pokreni server: 
     `py app.py`
 
+#### Korišteni paketi na serveru
+
+- Flask-Cors:
+    `pip install flask-cors`
+
 ### Klijent
 
 1. Uđi u `klijent` direktorij
@@ -21,4 +26,16 @@
     `yarn install`
 3. Pokreni klijent:
     `yarn start`
-    
+
+#### Korišteni paketi na klijentu
+
+- react-router-dom
+    `yarn add react-router-dom`
+
+- react-table:
+    `yarn add react-table`
+
+- styled-components
+    `yarn add styled-components`
+
+
