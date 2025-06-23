@@ -50,36 +50,16 @@ const PrikazDetalja = () => {
   const [loading, setLoading] = useState(true); // opcionalno za loading state
 
   const { id } = useParams();
-  console.log(id);
-  const navigate = useNavigate();
 
-  /*useEffect(() => {
-    fetch("http://localhost:5000/api/rezervacije")
-      .then((res) => res.json())
-      .then((podaci) => {
-        setData(podaci);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setLoading(false);
-        alert("Greška pri dohvaćanju podataka!");
-      });
-  }, []);*/
-
-  // const podatak = data[id-1];
-
-  // Pronađi podatak prema ID-u (pazi na tip podatka!)
-  //const podatak = data.find((item) => String(item.id) === String(id));
+  const navigate = useNavigate(); 
 
   const dohvatiRezervaciju = async (id) => {
     try {
       const response = await axios.get(
         `http://localhost:5000/api/rezervacije/${id}`
       );
-
       setData(response.data);
-      setLoading(false);
-      // setRezervacija(response.data);
+      setLoading(false);   
     } catch (error) {
       alert("Greška pri dohvaćanju rezervacije!");
     }
