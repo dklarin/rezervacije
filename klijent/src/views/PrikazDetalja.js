@@ -45,13 +45,20 @@ const ColorValue = styled(Value)`
   border-radius: 6px;
 `;
 
+const labelMap = {
+  brown: "Smeđi",
+  green: "Zeleni",
+  lightblue: "Svijetloplavi",
+  darkgray: "Stan",
+};
+
 const PrikazDetalja = () => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true); // opcionalno za loading state
 
   const { id } = useParams();
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const dohvatiRezervaciju = async (id) => {
     try {
@@ -59,7 +66,7 @@ const PrikazDetalja = () => {
         `http://localhost:5000/api/rezervacije/${id}`
       );
       setData(response.data);
-      setLoading(false);   
+      setLoading(false);
     } catch (error) {
       alert("Greška pri dohvaćanju rezervacije!");
     }
@@ -84,6 +91,11 @@ const PrikazDetalja = () => {
     }
   };
 
+  function formatirajDatum(datum) {
+    const [godina, mjesec, dan] = datum.split("-");
+    return `${dan}.${mjesec}.${godina}.`;
+  }
+
   if (loading) return <Loader />;
 
   return (
@@ -98,21 +110,17 @@ const PrikazDetalja = () => {
       </DetailRow>
       <DetailRow>
         <Label>Apartman:</Label>
-        <Value>{data.apartman}</Value>
-      </DetailRow>
-      <DetailRow>
-        <Label>Status:</Label>
-        <ColorValue color={data.boja}>{data.boja}</ColorValue>
-      </DetailRow>
+        <ColorValue color={data.boja}>{labelMap[data.boja] || data.boja}</ColorValue>
+      </DetailRow>     
       <DetailRow>
         <Label>Dolazak:</Label>
-        <Value>{data.dolazak}</Value>
+        <Value>{formatirajDatum(data.dolazak)}</Value>
       </DetailRow>
       <DetailRow>
         <Label>Odlazak:</Label>
-        <Value>{data.odlazak}</Value>
+        <Value>{formatirajDatum(data.odlazak)}</Value>
       </DetailRow>
-       <DetailRow>
+      <DetailRow>
         <Label>Kanal prodaje:</Label>
         <Value>{data.kanal_prodaje}</Value>
       </DetailRow>
