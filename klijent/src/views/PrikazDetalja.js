@@ -78,7 +78,7 @@ const PrikazDetalja = () => {
       );
 
       setData(response.data);
-setLoading(false);
+      setLoading(false);
       // setRezervacija(response.data);
     } catch (error) {
       alert("Greška pri dohvaćanju rezervacije!");
@@ -91,7 +91,9 @@ setLoading(false);
 
   const obrisiRezervaciju = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/rezervacije-brisi/${id}`);
+      const response = await axios.delete(
+        `http://localhost:5000/api/rezervacije-brisi/${id}`
+      );
       if (response.data.status === "obrisano") {
         navigate("/rezervacije");
         alert(`Rezervacija s ID ${id} je obrisana!`);
@@ -102,7 +104,7 @@ setLoading(false);
     }
   };
 
-    if (loading) return <Loader />;
+  if (loading) return <Loader />;
 
   return (
     <DetailWrapper>
@@ -129,6 +131,10 @@ setLoading(false);
       <DetailRow>
         <Label>Odlazak:</Label>
         <Value>{data.odlazak}</Value>
+      </DetailRow>
+       <DetailRow>
+        <Label>Kanal prodaje:</Label>
+        <Value>{data.kanal_prodaje}</Value>
       </DetailRow>
       <button onClick={() => navigate(-1)}>Natrag</button>
       <button onClick={() => obrisiRezervaciju(id)}>Obriši</button>

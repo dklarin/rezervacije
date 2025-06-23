@@ -4,111 +4,127 @@
     "gost": "Renata Hegyi",
     "boja": "brown",
     "dolazak": "2025-06-23",
-    "odlazak": "2025-06-30"
+    "odlazak": "2025-06-30",
+    "kanal_prodaje": "osobno"
   },
   {
     "id": 2,
     "gost": "Doris Grunowski",
     "boja": "brown",
     "dolazak": "2025-07-28",
-    "odlazak": "2025-08-09"
+    "odlazak": "2025-08-09",
+    "kanal_prodaje": "osobno"
   },
   {
     "id": 3,
     "gost": "Renata Hegyi",
     "boja": "lightblue",
     "dolazak": "2025-06-23",
-    "odlazak": "2025-06-30"
+    "odlazak": "2025-06-30",
+    "kanal_prodaje": "osobno"
   },
   {
     "id": 4,
     "gost": "Günther Reichherzer",
     "boja": "lightblue",
     "dolazak": "2025-07-13",
-    "odlazak": "2025-07-23"
+    "odlazak": "2025-07-23",
+    "kanal_prodaje": "osobno"
   },
   {
     "id": 5,
     "gost": "Ribnica",
     "boja": "lightblue",
     "dolazak": "2025-07-23",
-    "odlazak": "2025-08-04"
+    "odlazak": "2025-08-04",
+    "kanal_prodaje": "osobno"
   },
   {
     "id": 6,
     "gost": "Magzhan",
     "boja": "lightblue",
     "dolazak": "2025-08-07",
-    "odlazak": "2025-08-11"
+    "odlazak": "2025-08-11",
+    "kanal_prodaje": "Airbnb"
   },
   {
     "id": 7,
     "gost": "Renata Hegyi",
     "boja": "green",
     "dolazak": "2025-06-23",
-    "odlazak": "2025-06-30"
+    "odlazak": "2025-06-30",
+    "kanal_prodaje": "osobno"
   },
   {
     "id": 8,
     "gost": "Danny",
     "boja": "green",
     "dolazak": "2025-07-09",
-    "odlazak": "2025-07-15"
+    "odlazak": "2025-07-15",
+    "kanal_prodaje": "Airbnb"
   },
   {
     "id": 9,
     "gost": "Simon Jakšić",
     "boja": "green",
     "dolazak": "2025-07-19",
-    "odlazak": "2025-08-19"
+    "odlazak": "2025-08-19",
+    "kanal_prodaje": "osobno"
   },
   {
     "id": 10,
     "gost": "Andrea",
     "boja": "green",
     "dolazak": "2025-08-19",
-    "odlazak": "2025-08-25"
+    "odlazak": "2025-08-25",
+    "kanal_prodaje": "Airbnb"
   },
   {
     "id": 11,
     "gost": "Jasmin Wetter",
     "boja": "darkgray",
     "dolazak": "2025-06-20",
-    "odlazak": "2025-06-27"
+    "odlazak": "2025-06-27",
+    "kanal_prodaje": "osobno"
   },
   {
     "id": 12,
-    "gost": "Jakov",
+    "gost": "Tomasz Brewiński",
     "boja": "darkgray",
     "dolazak": "2025-07-01",
-    "odlazak": "2025-07-09"
+    "odlazak": "2025-07-09",
+    "kanal_prodaje": "Jakov"
   },
   {
     "id": 13,
     "gost": "Jakov",
     "boja": "darkgray",
     "dolazak": "2025-07-09",
-    "odlazak": "2025-07-14"
+    "odlazak": "2025-07-14",
+    "kanal_prodaje": "Jakov"
   },
   {
     "id": 14,
     "gost": "Jakov",
     "boja": "darkgray",
     "dolazak": "2025-08-20",
-    "odlazak": "2025-08-26"
+    "odlazak": "2025-08-26",
+    "kanal_prodaje": "Jakov"
   },
   {
     "id": 15,
     "gost": "Jakov",
     "boja": "darkgray",
     "dolazak": "2025-08-27",
-    "odlazak": "2025-09-03"
+    "odlazak": "2025-09-03",
+    "kanal_prodaje": "Jakov"
   },
   {
+    "id": 16,
     "gost": "Roxane",
     "boja": "brown",
     "dolazak": "2025-07-06",
     "odlazak": "2025-07-18",
-    "id": 16
+    "kanal_prodaje": "Airbnb"    
   }
 ]
