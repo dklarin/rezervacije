@@ -96,6 +96,16 @@ const PrikazDetalja = () => {
     return `${dan}.${mjesec}.${godina}.`;
   }
 
+  function getDaysBetween(date1, date2) {
+    const d1 = new Date(date1);
+    const d2 = new Date(date2);
+    const millisecondsPerDay = 24 * 60 * 60 * 1000;
+    // Postavi vrijeme na ponoć za točan izračun
+    d1.setHours(0, 0, 0, 0);
+    d2.setHours(0, 0, 0, 0);
+    return Math.round(Math.abs((d2 - d1) / millisecondsPerDay));
+  }
+
   if (loading) return <Loader />;
 
   return (
@@ -110,8 +120,10 @@ const PrikazDetalja = () => {
       </DetailRow>
       <DetailRow>
         <Label>Apartman:</Label>
-        <ColorValue color={data.boja}>{labelMap[data.boja] || data.boja}</ColorValue>
-      </DetailRow>     
+        <ColorValue color={data.boja}>
+          {labelMap[data.boja] || data.boja}
+        </ColorValue>
+      </DetailRow>
       <DetailRow>
         <Label>Dolazak:</Label>
         <Value>{formatirajDatum(data.dolazak)}</Value>
@@ -119,6 +131,10 @@ const PrikazDetalja = () => {
       <DetailRow>
         <Label>Odlazak:</Label>
         <Value>{formatirajDatum(data.odlazak)}</Value>
+      </DetailRow>
+      <DetailRow>
+        <Label>Broj noći:</Label>
+        <Value>{getDaysBetween(data.dolazak, data.odlazak)}</Value>
       </DetailRow>
       <DetailRow>
         <Label>Kanal prodaje:</Label>
