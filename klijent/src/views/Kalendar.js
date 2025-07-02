@@ -37,6 +37,8 @@ export const NextButton = styled.button`
   }
 `;
 
+const adresa = "https://rezervacije.onrender.com/"
+
 const Kalendar = () => {
   const [dogadaji, setDogadaji] = useState(pocetniDogadaji);
 
@@ -44,7 +46,7 @@ const Kalendar = () => {
   const [loading, setLoading] = useState(true); // opcionalno za loading state
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/rezervacije")
+    fetch(`${adresa}/api/rezervacije`)
       .then((res) => res.json())
       .then((podaci) => {
         setData(podaci);

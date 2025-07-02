@@ -79,6 +79,8 @@ const StyledInput = styled.input`
   }
 `;
 
+const adresa = "https://rezervacije.onrender.com/"
+
 const Rezervacije = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true); // opcionalno za loading state
@@ -87,7 +89,7 @@ const Rezervacije = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/rezervacije")
+    fetch(`${adresa}/api/rezervacije`)
       .then((res) => res.json())
       .then((podaci) => {
         setData(podaci);

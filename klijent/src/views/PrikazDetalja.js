@@ -52,6 +52,8 @@ const labelMap = {
   darkgray: "Stan",
 };
 
+const adresa = "https://rezervacije.onrender.com/"
+
 const PrikazDetalja = () => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true); // opcionalno za loading state
@@ -63,7 +65,7 @@ const PrikazDetalja = () => {
   const dohvatiRezervaciju = async (id) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/rezervacije/${id}`
+        `${adresa}/api/rezervacije/${id}`
       );
       setData(response.data);
       setLoading(false);
@@ -79,7 +81,7 @@ const PrikazDetalja = () => {
   const obrisiRezervaciju = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/api/rezervacije-brisi/${id}`
+        `${adresa}/api/rezervacije-brisi/${id}`
       );
       if (response.data.status === "obrisano") {
         navigate("/rezervacije");

@@ -41,6 +41,8 @@ export const NextButton = styled.button`
   }
 `;
 
+const adresa = "https://rezervacije.onrender.com/"
+
 const NovaRezervacija = () => {
   const [noviRed, setNoviRed] = useState(PocetniRed);
   const [poruka, setPoruka] = useState("");
@@ -57,7 +59,7 @@ const NovaRezervacija = () => {
     e.preventDefault();
     setLoading(true);
     setPoruka("");
-    fetch("http://localhost:5000/api/rezervacije", {
+    fetch(`${adresa}/api/rezervacije`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(noviRed),
