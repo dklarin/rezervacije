@@ -57,7 +57,7 @@
   },
   {
     "id": 8,
-    "gost": "Danny",
+    "gost": "Danny Gartside",
     "boja": "green",
     "dolazak": "2025-07-09",
     "odlazak": "2025-07-15",
@@ -125,6 +125,14 @@
     "boja": "brown",
     "dolazak": "2025-07-06",
     "odlazak": "2025-07-18",
+    "kanal_prodaje": "Airbnb"    
+  },  
+  {
+    "id": 17,
+    "gost": "Dunja Papić",
+    "boja": "brown",
+    "dolazak": "2025-07-24",
+    "odlazak": "2025-07-28",
     "kanal_prodaje": "Airbnb"    
   }
 ]
