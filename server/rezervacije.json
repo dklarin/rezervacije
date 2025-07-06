@@ -97,7 +97,7 @@
   },
   {
     "id": 13,
-    "gost": "Lola Petermeijer",
+    "gost": "Lola P.",
     "boja": "darkgray",
     "dolazak": "2025-07-09",
     "odlazak": "2025-07-14",
@@ -121,7 +121,7 @@
   },
   {
     "id": 16,
-    "gost": "Roxane Kelland",
+    "gost": "Roxane K.",
     "boja": "brown",
     "dolazak": "2025-07-06",
     "odlazak": "2025-07-18",
@@ -129,10 +129,26 @@
   },  
   {
     "id": 17,
-    "gost": "Dunja Papić",
+    "gost": "Dunja P.",
     "boja": "brown",
     "dolazak": "2025-07-24",
     "odlazak": "2025-07-28",
+    "kanal_prodaje": "Airbnb"    
+  },  
+  {
+    "id": 18,
+    "gost": "Igor T.",
+    "boja": "darkgray",
+    "dolazak": "2025-07-14",
+    "odlazak": "2025-08-14",
+    "kanal_prodaje": "osobno"    
+  },  
+  {
+    "id": 19,
+    "gost": "Thierry M.",
+    "boja": "darkgray",
+    "dolazak": "2025-08-21",
+    "odlazak": "2025-08-26",
     "kanal_prodaje": "Airbnb"    
   }
 ]
