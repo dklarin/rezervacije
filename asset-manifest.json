@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/rezervacije/static/css/main.947bb42b.css",
-    "main.js": "/rezervacije/static/js/main.2229c6e5.js",
+    "main.js": "/rezervacije/static/js/main.ca256a9e.js",
     "static/js/453.ddc0c0d0.chunk.js": "/rezervacije/static/js/453.ddc0c0d0.chunk.js",
     "index.html": "/rezervacije/index.html",
     "main.947bb42b.css.map": "/rezervacije/static/css/main.947bb42b.css.map",
-    "main.2229c6e5.js.map": "/rezervacije/static/js/main.2229c6e5.js.map",
+    "main.ca256a9e.js.map": "/rezervacije/static/js/main.ca256a9e.js.map",
     "453.ddc0c0d0.chunk.js.map": "/rezervacije/static/js/453.ddc0c0d0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.947bb42b.css",
-    "static/js/main.2229c6e5.js"
+    "static/js/main.ca256a9e.js"
   ]
 }
