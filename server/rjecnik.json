@@ -16,5 +16,47 @@
     "talijanski": "aceto",
     "hrvatski": "ocat",
     "grupa": "jela"
+  },
+  {
+    "id": 4,
+    "talijanski": "lunedi",
+    "hrvatski": "ponedjeljak",
+    "grupa": "dani"
+  },
+  {
+    "id": 5,
+    "talijanski": "martedi",
+    "hrvatski": "utorak",
+    "grupa": "dani"
+  },
+  {
+    "id": 6,
+    "talijanski": "mercoledi",
+    "hrvatski": "srijeda",
+    "grupa": "dani"
+  },
+  {
+    "id": 7,
+    "talijanski": "giovedi",
+    "hrvatski": "četvrtak",
+    "grupa": "dani"
+  },
+  {
+    "id": 8,
+    "talijanski": "venerdi",
+    "hrvatski": "petak",
+    "grupa": "dani"
+  },
+  {
+    "id": 9,
+    "talijanski": "sabato",
+    "hrvatski": "subota",
+    "grupa": "dani"
+  },
+  {
+    "id": 10,
+    "talijanski": "domenica",
+    "hrvatski": "nedjelja",
+    "grupa": "dani"
   }
 ]
