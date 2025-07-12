@@ -11,6 +11,12 @@ CORS(app)
 
 DATA_FILE = 'rezervacije.json'
 
+@app.route('/api/rjecnik', methods=['GET'])
+def get_rjecnik():
+    with open('rjecnik.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    return jsonify(data)
+
 @app.route('/api/rezervacije', methods=['GET'])
 def get_rezervacije():
     with open('rezervacije.json', 'r', encoding='utf-8') as f:

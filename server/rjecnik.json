@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "talijanski": "farina",
+    "hrvatski": "brašno",
+    "grupa": "jela"
+  },
+  {
+    "id": 2,
+    "talijanski": "olio",
+    "hrvatski": "ulje",
+    "grupa": "jela"
+  },
+  {
+    "id": 3,
+    "talijanski": "aceto",
+    "hrvatski": "ocat",
+    "grupa": "jela"
+  }
+]

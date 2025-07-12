@@ -80,9 +80,9 @@ const StyledInput = styled.input`
 `;
 
 const adresa = "https://rezervacije.onrender.com/"
-//const adresa = "http://localhost:5000/"
+//const adresa = "http://localhost:5000/";
 
-const Rezervacije = () => {
+const Rjecnik = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true); // opcionalno za loading state
   const [filter, setFilter] = useState("");
@@ -90,7 +90,7 @@ const Rezervacije = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`${adresa}/api/rezervacije`)
+    fetch(`${adresa}/api/rjecnik`)
       .then((res) => res.json())
       .then((podaci) => {
         setData(podaci);
@@ -124,56 +124,9 @@ const Rezervacije = () => {
   const columns = React.useMemo(
     () => [
       { Header: "ID", accessor: "id" },
-      { Header: "Gost", accessor: "gost" },
-      {
-        Header: "Apartman",
-        accessor: "boja",
-        Cell: ({ value }) => (
-          <ColorCell color={value}>{labelMap[value] || value}</ColorCell>
-        ),
-      },
-      {
-        Header: "Dolazak",
-        accessor: "dolazak",
-        align: "center",
-        Cell: ({ value }) => {
-          if (!value) return "";
-          const date = new Date(value);
-          return date.toLocaleDateString("hr-HR"); // daje format 25.08.2025.
-        },
-        sortType: (rowA, rowB, columnId) => {
-          const dateA = new Date(rowA.values[columnId]);
-          const dateB = new Date(rowB.values[columnId]);
-          return dateA > dateB ? 1 : dateA < dateB ? -1 : 0;
-        },
-      },
-      {
-        Header: "Odlazak",
-        accessor: "odlazak",
-        align: "center",
-        Cell: ({ value }) => {
-          if (!value) return "";
-          const date = new Date(value);
-          return date.toLocaleDateString("hr-HR"); // daje format 25.08.2025.
-        },
-      },
-      {
-        Header: "Raspon dana",
-        id: "rasponDana",
-        accessor: (row) => getDaysBetween(row.dolazak, row.odlazak),
-        align: "right",
-      },
-      {
-      Header: "Dana do dolaska",
-      id: "danaDoDolaska",
-      accessor: row => getDaysUntil(row.dolazak),
-      Cell: ({ value }) =>
-        value > 0
-          ? `${value} dana`
-          : value === 0
-          ? "Danas"
-          : "Prošlo",
-    },
+      { Header: "Talijanski", accessor: "talijanski" },
+      { Header: "Hrvatski", accessor: "hrvatski" },
+      { Header: "Grupa", accessor: "grupa" },     
     ],
     []
   );
@@ -283,4 +236,4 @@ const Rezervacije = () => {
   );
 };
 
-export default Rezervacije;
+export default Rjecnik;

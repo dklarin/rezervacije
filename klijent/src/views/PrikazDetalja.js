@@ -53,6 +53,7 @@ const labelMap = {
 };
 
 const adresa = "https://rezervacije.onrender.com/"
+//const adresa = "http://localhost:5000/"
 
 const PrikazDetalja = () => {
   const [data, setData] = useState({});

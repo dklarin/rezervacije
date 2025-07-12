@@ -42,6 +42,7 @@ export const NextButton = styled.button`
 `;
 
 const adresa = "https://rezervacije.onrender.com/"
+//const adresa = "http://localhost:5000/"
 
 const NovaRezervacija = () => {
   const [noviRed, setNoviRed] = useState(PocetniRed);
