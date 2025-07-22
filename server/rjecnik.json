@@ -58,5 +58,23 @@
     "talijanski": "domenica",
     "hrvatski": "nedjelja",
     "grupa": "dani"
+  },
+  {
+    "id": 11,
+    "talijanski": "oggi",
+    "hrvatski": "danas",
+    "grupa": "vremenski prilog"
+  },
+  {
+    "id": 12,
+    "talijanski": "domani",
+    "hrvatski": "sutra",
+    "grupa": "vremenski prilog"
+  },
+  {
+    "id": 13,
+    "talijanski": "pioggia",
+    "hrvatski": "kiša",
+    "grupa": "vremenska prognoza"
   }
 ]
