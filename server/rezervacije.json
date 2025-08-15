@@ -174,5 +174,37 @@
     "dolazak": "2025-08-28",
     "odlazak": "2025-09-02",
     "kanal_prodaje": "Airbnb"    
+  },  
+  {
+    "id": 23,
+    "gost": "Edina N.",
+    "boja": "lightblue",
+    "dolazak": "2025-08-13",
+    "odlazak": "2025-08-17",
+    "kanal_prodaje": "Jakov"    
+  },  
+  {
+    "id": 24,
+    "gost": "Semmi J.",
+    "boja": "lightblue",
+    "dolazak": "2025-08-20",
+    "odlazak": "2025-08-25",
+    "kanal_prodaje": "Airbnb"    
+  },    
+  {
+    "id": 25,
+    "gost": "Igor T.",
+    "boja": "darkgray",
+    "dolazak": "2026-07-15",
+    "odlazak": "2026-08-15",
+    "kanal_prodaje": "Osobno"    
+  },    
+  {
+    "id": 26,
+    "gost": "Simon J.",
+    "boja": "green",
+    "dolazak": "2026-07-15",
+    "odlazak": "2026-08-25",
+    "kanal_prodaje": "Osobno"    
   }
 ]
