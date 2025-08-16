@@ -68,7 +68,7 @@
     "gost": "Simon Jakšić",
     "boja": "green",
     "dolazak": "2025-07-19",
-    "odlazak": "2025-08-19",
+    "odlazak": "2025-08-16",
     "kanal_prodaje": "osobno"
   },
   {
@@ -81,7 +81,7 @@
   },
   {
     "id": 11,
-    "gost": "Jasmin Wetter",
+    "gost": "Jasmin W.",
     "boja": "darkgray",
     "dolazak": "2025-06-20",
     "odlazak": "2025-06-27",
@@ -140,7 +140,7 @@
     "gost": "Igor T.",
     "boja": "darkgray",
     "dolazak": "2025-07-14",
-    "odlazak": "2025-08-14",
+    "odlazak": "2025-08-15",
     "kanal_prodaje": "osobno"    
   },  
   {
@@ -193,10 +193,10 @@
   },    
   {
     "id": 25,
-    "gost": "Igor T.",
-    "boja": "darkgray",
-    "dolazak": "2026-07-15",
-    "odlazak": "2026-08-15",
+    "gost": "Natali",
+    "boja": "lightblue",
+    "dolazak": "2026-07-25",
+    "odlazak": "2026-08-07",
     "kanal_prodaje": "Osobno"    
   },    
   {
@@ -205,6 +205,14 @@
     "boja": "green",
     "dolazak": "2026-07-15",
     "odlazak": "2026-08-25",
+    "kanal_prodaje": "Osobno"    
+  },    
+  {
+    "id": 27,
+    "gost": "Igor T.",
+    "boja": "darkgray",
+    "dolazak": "2026-07-15",
+    "odlazak": "2026-08-15",
     "kanal_prodaje": "Osobno"    
   }
 ]
