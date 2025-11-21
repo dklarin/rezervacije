@@ -18,31 +18,30 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Cache node modules
-        uses: actions/cache@v3
         with:
-          path: klijent/node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('klijent/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          # Obavezno isključi sparse-checkout da se preuzme CIJELI repo
+          sparse-checkout: false
+          # ili barem dodaj putanju ako hoćeš da ostane sparse
+          # sparse-checkout-cone-mode: false
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'yarn'  # može i bez ovog ako koristiš keširanje preko actions/cache
+          cache: 'yarn'                     # ovo automatski kešira node_modules
+          cache-dependency-path: klijent/yarn.lock   # <--- VAŽNO!
 
       - name: Install dependencies (client)
         working-directory: ./klijent
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
-      - name: Build (client)
+      - name: Build React app
         working-directory: ./klijent
         run: yarn build
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages         # grana za GitHub Pages
-          folder: klijent/build    # build folder unutar klijent
+          branch: gh-pages
+          folder: klijent/build
+          clean: true   # opcionalno, briše stare fajlove
