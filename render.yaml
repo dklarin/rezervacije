@@ -3,8 +3,9 @@ services:
   - type: web
     name: rezervacije-klijent
     env: static
-    buildCommand: cd rezervacije/klijent && yarn install && yarn build
-    staticPublishPath: rezervacije/klijent/build
+    rootDir: rezervacije/klijent
+    buildCommand: yarn install && yarn build
+    staticPublishPath: build
     routes:
       - type: rewrite
         source: /*
