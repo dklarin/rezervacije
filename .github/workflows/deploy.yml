@@ -16,30 +16,50 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository (full history + all files)
+      # 1. Preuzmi CIJELI repozitorijum (najvažnije!)
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0          # <─ OBAVEZNO – skida cijeli repo
-          sparse-checkout: false # <─ OBAVEZNO – gasi sparse-checkout
+          fetch-depth: 0          # bez shallow clone-a
+          sparse-checkout: false  # isključi sparse-checkout da se preuzme SVE
 
+      # 2. Opcionalno – debug korak ako i dalje sumnjaš da li je yarn.lock tu
+      # (možeš ga obrisati kad vidiš da sve radi)
+      - name: Debug – provjera postojanja yarn.lock
+        run: |
+          echo "≈ Radni direktorijum:"
+          ls -la
+          echo "≈ Sadržaj foldera klijent/:"
+          ls -la klijent/
+          echo "yarn.lock postoji? → $(test -f klijent/yarn.lock && echo 'DA' || echo 'NE')"
+
+      # 3. Postavi Node.js i automatski keširaj node_modules na osnovu klijent/yarn.lock
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'yarn'
-          cache-dependency-path: klijent/yarn.lock   # sada će sigurno naći fajl
+          cache: 'yarn'                          # automatsko keširanje
+          cache-dependency-path: klijent/yarn.lock  # ← ključno za podfolder
 
+      # 4. Instaliraj dependencies
       - name: Install dependencies
         working-directory: ./klijent
         run: yarn install --frozen-lockfile
 
-      - name: Build app
+      # 5. Build React aplikacije
+      - name: Build React app
         working-directory: ./klijent
         run: yarn build
 
+      # 6. Deploy na GitHub Pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
-          folder: klijent/build
-          clean: true
+          branch: gh-pages      # grana na koju se deploy-uje
+          folder: klijent/build # folder sa build-ovanim fajlovima
+          clean: true           # briše stare fajlove sa gh-pages (preporučeno)
+          force: true           # osigurava da se sve upload-uje
+
+      # 7. Opcionalno – info da je deploy završen
+      - name: Deploy finished
+        run: echo "Deploy na gh-pages uspješan! https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
