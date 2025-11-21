@@ -55,6 +55,8 @@ const NovaRezervacija = () => {
     setNoviRed({ ...noviRed, [e.target.name]: e.target.value });
   };
 
+  //
+
   // Slanje forme na Flask backend
   const handleSubmit = (e) => {
     e.preventDefault();
