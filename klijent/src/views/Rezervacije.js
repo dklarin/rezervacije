@@ -79,13 +79,14 @@ const StyledInput = styled.input`
   }
 `;
 
-const adresa = "https://rezervacije.onrender.com/"
+const adresa = "https://rezervacije.onrender.com/";
 //const adresa = "http://localhost:5000/"
 
 const Rezervacije = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true); // opcionalno za loading state
   const [filter, setFilter] = useState("");
+  const [yearFilter, setYearFilter] = useState("sve"); // NOVO
 
   const navigate = useNavigate();
 
@@ -164,16 +165,12 @@ const Rezervacije = () => {
         align: "right",
       },
       {
-      Header: "Dana do dolaska",
-      id: "danaDoDolaska",
-      accessor: row => getDaysUntil(row.dolazak),
-      Cell: ({ value }) =>
-        value > 0
-          ? `${value} dana`
-          : value === 0
-          ? "Danas"
-          : "Prošlo",
-    },
+        Header: "Dana do dolaska",
+        id: "danaDoDolaska",
+        accessor: (row) => getDaysUntil(row.dolazak),
+        Cell: ({ value }) =>
+          value > 0 ? `${value} dana` : value === 0 ? "Danas" : "Prošlo",
+      },
     ],
     []
   );
@@ -186,7 +183,14 @@ const Rezervacije = () => {
     )
   );*/
 
-  const filteredData = React.useMemo(
+  // helper za dobivanje godine iz dolaska
+  const getYearFromDate = (dateString) => {
+    if (!dateString) return null;
+    const d = new Date(dateString);
+    return d.getFullYear(); // npr. 2025
+  };
+
+  /*const filteredData = React.useMemo(
     () =>
       data.filter((row) =>
         Object.values(row).some(
@@ -196,7 +200,30 @@ const Rezervacije = () => {
         )
       ),
     [data, filter]
+  );*/
+
+  const filteredData = React.useMemo(
+    () =>
+      data
+        // 1. filtriraj po godini (ako je odabrana)
+        .filter((row) => {
+          if (yearFilter === "sve") return true;
+          const year = getYearFromDate(row.dolazak);
+          return year && year.toString() === yearFilter;
+        })
+        // 2. tvoj postojeći tekstualni filter
+        .filter((row) =>
+          Object.values(row).some(
+            (value) =>
+              value &&
+              value.toString().toLowerCase().includes(filter.toLowerCase())
+          )
+        ),
+    [data, filter, yearFilter]
   );
+
+  console.log(data);
+  console.log(filteredData);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable(
@@ -223,6 +250,22 @@ const Rezervacije = () => {
 
   return (
     <CenterWrapper>
+      {/* SELECT ZA GODINU */}
+      <select
+        style={{
+          marginTop: 60,
+          marginBottom: 16,
+          fontSize: 18,
+          padding: "6px 10px",
+        }}
+        value={yearFilter}
+        onChange={(e) => setYearFilter(e.target.value)}
+      >
+        <option value="sve">Sve godine</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+      </select>
+
       <StyledInput
         style={{ marginTop: 100 }}
         placeholder="Pretraži po ključnoj riječi..."
