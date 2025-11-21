@@ -35,23 +35,23 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'yarn'
-          cache-dependency-path: rezervacije/klijent/yarn.lock   # ← tačna putanja!
+          cache-dependency-path: klijent/yarn.lock   # ← tačna putanja!
 
       - name: Install dependencies
         working-directory: ./rezervacije/klijent
         run: yarn install --frozen-lockfile
 
       - name: Build React app
-        working-directory: ./rezervacije/klijent
+        working-directory: ./klijent
         run: yarn build
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: rezervacije/klijent/build   # ← tačna putanja do build foldera
+          folder: klijent/build   # ← tačna putanja do build foldera
           clean: true
 
       - name: Deploy uspješan!
