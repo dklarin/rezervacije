@@ -16,26 +16,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository (full history + all files)
         uses: actions/checkout@v4
         with:
-          # Obavezno isključi sparse-checkout da se preuzme CIJELI repo
-          sparse-checkout: false
-          # ili barem dodaj putanju ako hoćeš da ostane sparse
-          # sparse-checkout-cone-mode: false
+          fetch-depth: 0          # <─ OBAVEZNO – skida cijeli repo
+          sparse-checkout: false # <─ OBAVEZNO – gasi sparse-checkout
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'yarn'                     # ovo automatski kešira node_modules
-          cache-dependency-path: klijent/yarn.lock   # <--- VAŽNO!
+          cache: 'yarn'
+          cache-dependency-path: klijent/yarn.lock   # sada će sigurno naći fajl
 
-      - name: Install dependencies (client)
+      - name: Install dependencies
         working-directory: ./klijent
         run: yarn install --frozen-lockfile
 
-      - name: Build React app
+      - name: Build app
         working-directory: ./klijent
         run: yarn build
 
@@ -44,4 +42,4 @@ jobs:
         with:
           branch: gh-pages
           folder: klijent/build
-          clean: true   # opcionalno, briše stare fajlove
+          clean: true
