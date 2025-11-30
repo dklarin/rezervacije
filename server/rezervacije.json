@@ -254,5 +254,12 @@
     "dolazak": "2026-08-19",
     "odlazak": "2026-08-25",
     "kanal_prodaje": "Jakov"
+  },
+  {
+    "gost": "Jakov",
+    "boja": "darkgray",
+    "dolazak": "2026-07-07",
+    "odlazak": "2026-07-14",
+    "id": 33
   }
 ]
