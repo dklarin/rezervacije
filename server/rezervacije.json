@@ -256,10 +256,17 @@
     "kanal_prodaje": "Jakov"
   },
   {
+    "id": 33,
     "gost": "Jakov",
     "boja": "darkgray",
     "dolazak": "2026-07-07",
-    "odlazak": "2026-07-14",
-    "id": 33
+    "odlazak": "2026-07-14"
+  },
+  {
+    "id": 34,
+    "gost": "Jakov",
+    "boja": "darkgray",
+    "dolazak": "2026-06-29",
+    "odlazak": "2026-07-07"
   }
 ]
