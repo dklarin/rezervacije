@@ -268,5 +268,12 @@
     "boja": "darkgray",
     "dolazak": "2026-06-29",
     "odlazak": "2026-07-07"
+  },
+  {
+    "id": 35,
+    "gost": "Jakov",
+    "boja": "darkgray",
+    "dolazak": "2026-08-27",
+    "odlazak": "2026-09-03"
   }
 ]
