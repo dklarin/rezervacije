@@ -283,5 +283,37 @@
     "dolazak": "2026-08-27",
     "odlazak": "2026-09-01",
     "kanal_prodaje": "Airbnb"
+  },
+  {
+    "id": 37,
+    "gost": "Renata H.",
+    "boja": "brown",
+    "dolazak": "2026-06-21",
+    "odlazak": "2026-06-28",
+    "kanal_prodaje": "Osobno"
+  },
+  {
+    "id": 38,
+    "gost": "Renata H.",
+    "boja": "darkgray",
+    "dolazak": "2026-06-21",
+    "odlazak": "2026-06-28",
+    "kanal_prodaje": "Osobno"
+  },
+  {
+    "id": 39,
+    "gost": "Renata H.",
+    "boja": "lightblue",
+    "dolazak": "2026-06-21",
+    "odlazak": "2026-06-28",
+    "kanal_prodaje": "Osobno"
+  },
+  {
+    "id": 40,
+    "gost": "Renata H.",
+    "boja": "green",
+    "dolazak": "2026-06-21",
+    "odlazak": "2026-06-28",
+    "kanal_prodaje": "Osobno"
   }
 ]
